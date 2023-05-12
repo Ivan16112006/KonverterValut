@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		//переменных валют
+		double rub = 1; //рубль
+		double usd = 74.76; //доллор
+		double eur = 79.61; //евро
+		double jpy = 0.56; //японская иена
+		double gbp = 89.79; //фунт стерлингов
+		double byn = 26.58; //белорусский рубль
+		double cny = 10.84; //китайский юань
+		double[] zna = {rub, usd, eur, jpy, gbp, byn, cny};
+		String[] word = {"RUB", "USD", "EUR", "JPY", "GBP", "BYN", "CNY" };
+		int kol;
+		int valut2;
+		Scanner scnr = new Scanner(System.in);
+		System.out.println("Моя валюта:\n" +
+		                   "1)Рубль\n" +
+		                   "2)Доллор\n" +
+		                   "3)Евро\n" +
+		                   "4)Японская иена\n" +
+		                   "5Китайский юань)Фунт стерлингов\n" +
+		                   "6)Белорусский рубль\n" +
+		                   "7)\n" +
+		                   "(Введите цифру)");
+		int valut1 = scnr.nextInt();
+		System.out.println("Колличество:");
+		kol = scnr.nextInt();
+		System.out.println("Конвертирую в:\n" +
+		                   "1)Рубль\n" +
+		                   "2)Доллор\n" +
+		                   "3)Евро\n" +
+		                   "4)Японская иена\n" +
+		                   "5)Фунт стерлингов\n" +
+		                   "6)Белорусский рубль\n" +
+		                   "7)Китайский юань\n" +
+		                   "(Введите цифру)");
+		valut2 = scnr.nextInt();
+		System.out.println(kol+" "+word[valut1-1]+" = "+konverter(kol, zna[valut1-1], zna[valut2-1])+" "+word[valut2-1]);
+	}
+	//Метод, который конвертирует валюту
+	static double konverter(double n, double valut1, double valut2){
+		double a = n*valut1/valut2;
+		return a-a%0.01;
+	}
+
+}
